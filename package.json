@@ -1,0 +1,46 @@
+{
+  "name": "insta-clone",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js",
+    "tailwind": "postcss public/tailwind.css -w -o public/tailwind.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HunterPadgett/insta-clone.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HunterPadgett/insta-clone/issues"
+  },
+  "homepage": "https://github.com/HunterPadgett/insta-clone#readme",
+  "dependencies": {
+    "autoprefixer": "^10.4.14",
+    "bcrypt": "^5.1.0",
+    "cloudinary": "^1.35.0",
+    "connect-mongo": "^5.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-flash": "^0.0.2",
+    "express-session": "^1.17.3",
+    "method-override": "^3.0.0",
+    "mongodb": "^5.1.0",
+    "mongoose": "^7.0.3",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "nodemon": "^2.0.22",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "postcss": "^8.4.21",
+    "postcss-cli": "^10.1.0",
+    "tailwindcss": "^3.3.0",
+    "validator": "^13.9.0"
+  }
+}
