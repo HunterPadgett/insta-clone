@@ -66,7 +66,7 @@ app.use(passport.session());
 app.use(flash());
 
 //Setup Routes For Which The Server Is Listening
-app.get("/", mainRoutes);
+app.use("/", mainRoutes);
 // app.use("/post", postRoutes);
 
 //Server Running
