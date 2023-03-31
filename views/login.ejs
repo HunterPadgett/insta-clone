@@ -1,15 +1,20 @@
 <%- include('partials/nav') -%>
 
 <!--  -->
-<div class="min-h-screen flex flex-col items-center">
+<div class="mt-16 md:mt-20 flex flex-col items-center justify-center">
  <div
   class="container max-w-sm mx-auto flex-1 flex flex-col justify-center px-2"
  >
-  <h1 class="text-white text-center mb-10 text-5xl md:text-6xl">Huntagram</h1>
-  <div class="bg-slate-50 px-6 py-8 rounded shadow-md w-full">
-   <h2 class="mb-8 text-2xl md:text-3xl text-center">Log in</h2>
+  <h1
+   class="text-white text-center mb-10 text-5xl md:text-6xl"
+   id="action-word"
+  >
+   Huntagram
+  </h1>
+  <div class="bg-slate-50 px-6 py-8 rounded shadow-md w-full" id="home-card">
+   <h2 class="mb-8 text-2xl md:text-3xl text-white text-center">Log in</h2>
    <form action="/login" method="post">
-    <label for="username">Username</label>
+    <label class="text-white" for="username">Username</label>
     <input
      type="text"
      class="block border border-black w-full p-3 rounded mb-4"
@@ -17,7 +22,7 @@
      id="username"
     />
 
-    <label for="password">Password</label>
+    <label class="text-white" for="password">Password</label>
     <input
      type="password"
      class="block border border-black w-full p-3 rounded mb-4"
@@ -27,7 +32,7 @@
 
     <button
      type="submit"
-     class="w-full text-center py-3 rounded text-white transition ease-in-out duration-500 hover:scale-105 focus:outline-none focus:tracking-wide my-1"
+     class="w-full text-center py-3 rounded text-white transition ease-in-out duration-500 hover:scale-105 focus:outline-none my-1"
      id="sign-up-btn"
     >
      Sign in
@@ -37,7 +42,9 @@
 
   <div class="text-white mt-6">
    Need an account?
-   <a class="underline" id="action-word" href="/signup">Sign up</a>.
+   <a id="underlined" id="action-word" class="font-semibold" href="/signup"
+    >Sign Up.</a
+   >
   </div>
  </div>
 </div>
