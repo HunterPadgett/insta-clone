@@ -27,10 +27,12 @@ nav {
 }
 
 #underlined {
- text-decoration-line: underline;
+ /* text-decoration-line: underline;
  text-decoration-style: "solid";
  text-decoration-color: #f2c30f;
- text-decoration-thickness: 5px;
+ text-decoration-thickness: 5px; */
+ border-bottom: 5px solid #f2c30f;
+ padding-bottom: 1px;
 }
 
 #sign-up-btn {
