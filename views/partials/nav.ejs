@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+   href="https://fonts.googleapis.com/css2?family=Poppins&family=Sansita&display=swap"
+   rel="stylesheet"
+  />
+  <link rel="stylesheet" href="/style.css" type="text/css" />
+  <link rel="stylesheet" href="/tailwind.css" type="text/css" />
+  <title>Huntagram</title>
+ </head>
+ <body>
+  <!-- Navbar goes here -->
+  <nav class="shadow-lg">
+   <div class="max-w-6xl mx-auto px-4">
+    <div class="flex justify-between">
+     <div class="flex space-x-7">
+      <!-- Primary Navbar items -->
+      <div class="flex items-center space-x-1">
+       <a
+        href="/"
+        id="logo"
+        class="py-4 px-2 text-white font-semibold text-xl hover:scale-105 transition duration-300"
+        >Huntagram</a
+       >
+      </div>
+     </div>
+     <!-- Secondary Navbar items -->
+     <div class="hidden md:flex items-center space-x-3">
+      <a
+       href="/login"
+       id="nav-link"
+       class="py-2 px-2 font-medium text-white rounded hover:text-black transition duration-300"
+       >Log In</a
+      >
+      <a
+       href="/signup"
+       id="nav-link"
+       class="py-2 px-2 font-medium text-white rounded hover:text-black transition duration-300"
+       >Sign Up</a
+      >
+     </div>
+     <!-- Mobile menu button -->
+     <div class="md:hidden flex items-center">
+      <button class="outline-none mobile-menu-button">
+       <svg
+        class="w-6 h-6 text-white"
+        id="mobile-nav-btn"
+        x-show="!showMenu"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+       >
+        <path d="M4 6h16M4 12h16M4 18h16"></path>
+       </svg>
+      </button>
+     </div>
+    </div>
+   </div>
+   <!-- mobile menu -->
+   <div class="hidden mobile-menu">
+    <ul class="">
+     <
+     <li>
+      <a
+       href="/login"
+       id="mobile-links"
+       class="block text-sm px-2 py-4 text-white hover:text-black transition duration-200"
+       >Log in</a
+      >
+     </li>
+     <li>
+      <a
+       href="/signup"
+       id="mobile-links"
+       class="block text-sm px-2 py-4 text-white hover:text-black transition duration-200"
+       >Sign up</a
+      >
+     </li>
+     <li>
+      <a
+       href="/feed"
+       id="mobile-links"
+       class="block text-sm px-2 py-4 text-white hover:text-black transition duration-200"
+       >Feed</a
+      >
+     </li>
+     <li>
+      <a
+       href="/profile"
+       id="mobile-links"
+       class="block text-sm px-2 py-4 text-white hover:text-black transition duration-200"
+       >Profile</a
+      >
+     </li>
+    </ul>
+   </div>
+  </nav>
+  <script src="/index.js"></script>
+ </body>
+</html>
