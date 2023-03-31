@@ -14,7 +14,10 @@
   />
   <link rel="stylesheet" href="/style.css" type="text/css" />
   <link rel="stylesheet" href="/tailwind.css" type="text/css" />
-  <title>Huntagram</title>
+  <title>
+   <% if (typeof title !== 'undefined') { %> <%= title %> <% } else { %>
+   Huntagram <% } %>
+  </title>
  </head>
  <body>
   <!-- Navbar goes here -->
@@ -26,8 +29,8 @@
       <div class="flex items-center space-x-1">
        <a
         href="/"
-        id="logo"
-        class="py-4 px-2 text-white font-semibold text-xl hover:scale-105 transition duration-300"
+        id="action-word"
+        class="logo py-4 px-2 text-white font-semibold text-xl hover:scale-105 transition duration-300"
         >Huntagram</a
        >
       </div>

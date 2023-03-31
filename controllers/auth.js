@@ -6,7 +6,9 @@ exports.getLogin = (req, res) => {
  //  if (req.user) {
  //   return res.redirect("/feed");
  //  }
- res.render("login");
+ res.render("login", {
+  title: "Huntagram | Log in",
+ });
 };
 
 exports.getSignup = (req, res) => {

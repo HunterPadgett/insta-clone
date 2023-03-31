@@ -1,37 +1,46 @@
- <%- include('partials/nav') -%>
-  <!--Main-->
+<%- include('partials/nav') -%>
+<!--Main-->
+<div class="bg-section-1">
+ <div
+  class="container mt-20 md:mt-28 max-w-6xl mx-auto flex flex-wrap flex-col md:flex-row items-center"
+  id="home-card"
+ >
   <div
-   class="container mt-20 md:mt-28 mx-auto flex flex-wrap flex-col md:flex-row items-center"
-   id="home-card"
+   class="flex flex-col w-full justify-center items-center overflow-y-hidden"
   >
-   <div
-    class="flex flex-col w-full justify-center  overflow-y-hidden"
+   <h1
+    class="my-4 md:my-7 text-3xl md:text-5xl text-white opacity-90 font-bold leading-tight text-center"
    >
-    <h1
-     class="my-4 md:my-7 text-3xl md:text-5xl text-white opacity-90 font-bold leading-tight text-center "
-    >
-     Welcome to <span id="action-word">Huntagram</span> 
-    </h1>
-    <p
-     class="leading-normal my-4 md:my-7 text-base md:text-2xl text-center text-white opacity-90  "
-    >
-     Definitely <span id="action-word">NOT just another</span> social media site you can post your memes!
+    Welcome to <span id="action-word">Huntagram</span>
+   </h1>
+   <p
+    class="leading-normal my-4 md:my-7 text-base md:text-2xl text-center text-white opacity-90"
+   >
+    Definitely <span class="font-bold" id="action-word">NOT</span> just a
+    knock-off social media site... <br />
+    <span class="font-bold" id="action-word-pink">pinky</span> promise!
+   </p>
+   <img
+    class="md:max-h-60 max-h-48 my-4 md:my-7 mx-2"
+    src="assets/undraw_stars_re_6je7.svg"
+    alt="astronaut"
+   />
+  </div>
+
+  <div
+   class="container md:flex mx-auto justify-center text-center items-center md:my-7 my-4"
+  >
+   <div class="w-full lg:w-1/2 p-4">
+    <p class="text-white">
+     <a href="/signup" class="" id="underlined">Create an account</a>
     </p>
-    <img class="md:max-h-60 my-4 md:my-7 mx-2" src="assets/undraw_stars_re_6je7.svg" alt="astronaut">
    </div>
-
-   <div class=" container flex mx-auto justify-center text-center items-center md:my-7 my-4">
-     <div class="w-full lg:w-1/2 p-4">
-       <p class="text-white">To get started  
-         <a href="/signup" class="underline" id="action-word">click here</a> to create an account.
-       </p>
-     </div>
-    <div class="w-full lg:w-1/2 p-4">
-      <p class="text-white"> Already have an account?
-        <a href="/login" class="underline" id="action-word">Log in</a>.
-      </p>
-    </div>
+   <div class="w-full lg:w-1/2 p-4">
+    <p class="text-white">
+     Already have an account?
+     <a href="/login" class="" id="underlined">Log in</a>
+    </p>
    </div>
-
   </div>
-  </div>
+ </div>
+</div>
