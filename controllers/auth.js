@@ -12,7 +12,7 @@ exports.getLogin = (req, res) => {
  });
 };
 
-exports.postLogin = async (req, res, next) => {
+exports.postLogin = (req, res, next) => {
  // // start of sign up validation
  const validationErrors = [];
  // make sure user types in username & password
@@ -20,10 +20,6 @@ exports.postLogin = async (req, res, next) => {
   validationErrors.push({ msg: "Password cannot be blank" });
  if (validator.isEmpty(req.body.password))
   validationErrors.push({ msg: "Password cannot be blank" });
-
- // remove leading/trailing spaces and escape special characters in the username and password
- const username = validator.trim(validator.escape(req.body.username));
- const password = validator.trim(validator.escape(req.body.password));
 
  if (validationErrors.length) {
   req.flash("errors", validationErrors);
@@ -103,9 +99,9 @@ exports.postSignup = async (req, res, next) => {
 
   // If no existing user found, create a new user object
   const user = new User({
-   name: req.body.name,
-   userName: req.body.username,
-   password: req.body.password,
+   name: req.body.name.trim(),
+   userName: req.body.username.trim(),
+   password: req.body.password.trim(),
   });
 
   // Save the new user object to the database, log them in, and direct them to /feed
