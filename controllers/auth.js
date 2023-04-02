@@ -8,7 +8,46 @@ exports.getLogin = (req, res) => {
  }
  res.render("login", {
   title: "Log in | Huntagram",
+  user: req.user,
  });
+};
+
+exports.postLogin = async (req, res, next) => {
+ // // start of sign up validation
+ const validationErrors = [];
+ // make sure user types in username & password
+ if (validator.isEmpty(req.body.username))
+  validationErrors.push({ msg: "Password cannot be blank" });
+ if (validator.isEmpty(req.body.password))
+  validationErrors.push({ msg: "Password cannot be blank" });
+
+ // remove leading/trailing spaces and escape special characters in the username and password
+ const username = validator.trim(validator.escape(req.body.username));
+ const password = validator.trim(validator.escape(req.body.password));
+
+ if (validationErrors.length) {
+  req.flash("errors", validationErrors);
+  return res.redirect("/login");
+ }
+ // // end of sign up validation
+
+ // Authenticate user
+ passport.authenticate("local", (err, user, info) => {
+  if (err) {
+   return next(err);
+  }
+  if (!user) {
+   req.flash("errors", info);
+   return res.redirect("/login");
+  }
+  req.logIn(user, (err) => {
+   if (err) {
+    return next(err);
+   }
+   req.flash("success", { msg: "Success! You are logged in" });
+   res.redirect(req.session.returnTo || "/feed");
+  });
+ })(req, res, next);
 };
 
 exports.getSignup = (req, res) => {
@@ -17,6 +56,7 @@ exports.getSignup = (req, res) => {
  }
  res.render("signup", {
   title: "Sign up | Huntagram",
+  user: req.user,
  });
 };
 
@@ -81,5 +121,44 @@ exports.postSignup = async (req, res, next) => {
 };
 
 exports.getFeed = (req, res) => {
- res.render("feed");
+ res.render("feed", {
+  user: req.user,
+ });
 };
+
+exports.getProfile = (req, res) => {
+ res.render("profile", {
+  title: "Profile | Huntagram",
+  user: req.user,
+ });
+};
+
+exports.logout = (req, res) => {
+ req.logout((err) => {
+  if (err) {
+   console.log("Error logging out: ", err);
+  } else {
+   console.log("User has logged out.");
+   req.session.destroy((err) => {
+    console.log("user logged out, session destroyed");
+    if (err) {
+     console.error("Error: Failed to destroy the session during logout.", err);
+    }
+    req.user = null;
+    res.redirect("/");
+   });
+  }
+ });
+};
+
+// exports.logout = (req, res) => {
+//  req.logout(() => {
+//   console.log("User has logged out.");
+//  });
+//  req.session.destroy((err) => {
+//   if (err)
+//    console.error("Error : Failed to destroy the session during logout.", err);
+//   req.user = null;
+//   res.redirect("/");
+//  });
+// }

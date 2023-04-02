@@ -37,6 +37,7 @@
      </div>
      <!-- Secondary Navbar items -->
      <div class="hidden md:flex items-center space-x-3">
+      <% if (!user) { %>
       <a
        href="/login"
        id="nav-link"
@@ -49,6 +50,26 @@
        class="py-2 px-2 font-medium text-white rounded hover:text-black transition duration-300"
        >Sign Up</a
       >
+      <% } else { %>
+      <a
+       href="/feed"
+       id="nav-link"
+       class="py-2 px-2 font-medium text-white rounded hover:text-black transition duration-300"
+       >Home</a
+      >
+      <a
+       href="/profile"
+       id="nav-link"
+       class="py-2 px-2 font-medium text-white rounded hover:text-black transition duration-300"
+       >Profile</a
+      >
+      <a
+       href="/logout"
+       id="nav-link"
+       class="py-2 px-2 font-medium text-white rounded hover:text-black transition duration-300"
+       >Log out</a
+      >
+      <% } %>
      </div>
      <!-- Mobile menu button -->
      <div class="md:hidden flex items-center">

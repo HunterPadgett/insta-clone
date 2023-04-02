@@ -13,6 +13,25 @@
   </h1>
   <div class="bg-slate-50 px-6 py-8 rounded shadow-md w-full" id="home-card">
    <h2 class="mb-8 text-2xl md:text-3xl text-white text-center">Log in</h2>
+
+   <%# start of validation messages %> <% if (locals.messages.errors) { %> <%
+   messages.errors.forEach( el => { %>
+   <div
+    class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative text-xs"
+    role="alert"
+   >
+    <%= el.msg %>
+   </div>
+   <% }) %> <% } %> <% if (locals.messages.info) { %> <% messages.info.forEach(
+   el => { %>
+   <div
+    class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative text-xs"
+    role="alert"
+   >
+    <%= el.msg %>
+   </div>
+   <% }) %> <% } %> <%# end of validation messages %>
+
    <form action="/login" method="post">
     <label class="text-white" for="username">Username</label>
     <input
