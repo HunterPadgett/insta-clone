@@ -150,15 +150,3 @@ exports.logout = (req, res) => {
   }
  });
 };
-
-// exports.logout = (req, res) => {
-//  req.logout(() => {
-//   console.log("User has logged out.");
-//  });
-//  req.session.destroy((err) => {
-//   if (err)
-//    console.error("Error : Failed to destroy the session during logout.", err);
-//   req.user = null;
-//   res.redirect("/");
-//  });
-// }
