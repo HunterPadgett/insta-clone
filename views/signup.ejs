@@ -13,12 +13,31 @@
   </h1>
   <div class="bg-slate-50 px-6 py-8 rounded shadow-md w-full" id="home-card">
    <h2 class="mb-8 text-2xl md:text-3xl text-white text-center">Sign up</h2>
+
+   <!-- validation boxes coming from passport if there is user error in signup -->
+   <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
+   <div
+    class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative text-xs"
+    role="alert"
+   >
+    <%= el.msg %>
+   </div>
+   <% }) %> <% } %> <% if (locals.messages.info) { %> <% messages.info.forEach(
+   el => { %>
+   <div
+    class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative text-xs"
+    role="alert"
+   >
+    <%= el.msg %>
+   </div>
+   <% }) %> <% } %> // end of user error validation
+
    <form action="/signup" method="post">
-    <label class="text-white" for="name">First name</label>
+    <label class="text-white" for="name">Name</label>
     <input
      type="text"
      class="block border border-black w-full p-3 rounded mb-4"
-     name="fullname"
+     name="name"
      id="name"
     />
 
@@ -38,12 +57,12 @@
      id="password"
     />
 
-    <label class="text-white" for="confirm-password">Confirm password</label>
+    <label class="text-white" for="confirmPassword">Confirm password</label>
     <input
      type="password"
      class="block border border-black w-full p-3 rounded mb-4"
-     name="confirm_password"
-     id="confirm-password"
+     name="confirmPassword"
+     id="confirmPassword"
     />
 
     <button
