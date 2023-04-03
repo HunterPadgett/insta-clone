@@ -41,14 +41,14 @@
   </div>
  </div>
 
+ <% if (posts.length > 1) { %>
  <h2
   class="text-white text-center mt-14 mb-10 text-4xl md:text-5xl"
   id="action-word"
  >
-  Previous posts
+  Your previous posts
  </h2>
-
- <% posts.forEach(post => { %>
+ <% } %> <% posts.forEach(post => { %>
  <!-- start card -->
  <div
   class="post container mb-8 max-w-sm md:max-w-md mx-auto flex flex-col"
