@@ -9,7 +9,10 @@ const flash = require("express-flash");
 const logger = require("morgan");
 const connectDB = require("./config/db");
 const cors = require("cors");
-const mainRoutes = require("./routes/main");
+const mainRoutes = require("./routes/index");
+const authRoutes = require("./routes/auth");
+const feedRoutes = require("./routes/feed");
+const profileRoutes = require("./routes/profile");
 // const postRoutes = require("./routes/posts");
 
 //Use .env file in config folder
@@ -67,6 +70,9 @@ app.use(flash());
 
 //Setup Routes For Which The Server Is Listening
 app.use("/", mainRoutes);
+app.use("/auth", authRoutes);
+app.use("/feed", feedRoutes);
+app.use("/profile", profileRoutes);
 // app.use("/post", postRoutes);
 
 //Server Running

@@ -23,7 +23,7 @@ exports.postLogin = (req, res, next) => {
 
  if (validationErrors.length) {
   req.flash("errors", validationErrors);
-  return res.redirect("/login");
+  return res.redirect("/auth/login");
  }
  // // end of sign up validation
 
@@ -34,7 +34,7 @@ exports.postLogin = (req, res, next) => {
   }
   if (!user) {
    req.flash("errors", info);
-   return res.redirect("/login");
+   return res.redirect("/auth/login");
   }
   req.logIn(user, (err) => {
    if (err) {
@@ -83,7 +83,7 @@ exports.postSignup = async (req, res, next) => {
 
  if (validationErrors.length) {
   req.flash("errors", validationErrors);
-  return res.redirect("/signup");
+  return res.redirect("/auth/signup");
  }
  // // end of sign up validation
 
@@ -94,7 +94,7 @@ exports.postSignup = async (req, res, next) => {
    req.flash("errors", {
     msg: "Account with that username already exists. Enter a different username",
    });
-   return res.redirect("/signup");
+   return res.redirect("/auth/signup");
   }
 
   // If no existing user found, create a new user object
@@ -114,19 +114,6 @@ exports.postSignup = async (req, res, next) => {
   console.error(err);
   return next(err);
  }
-};
-
-exports.getFeed = (req, res) => {
- res.render("feed", {
-  user: req.user,
- });
-};
-
-exports.getProfile = (req, res) => {
- res.render("profile", {
-  title: "Profile | Huntagram",
-  user: req.user,
- });
 };
 
 exports.logout = (req, res) => {
