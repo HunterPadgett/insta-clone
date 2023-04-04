@@ -64,5 +64,5 @@ input {
  -webkit-backdrop-filter: blur(3px) saturate(164%);
  background-color: rgba(17, 25, 40, 0.4);
  border-radius: 12px;
- border: 1px solid #f2c30f;
+ border: 2px solid #f2c30f;
 }
