@@ -594,8 +594,9 @@ video {
 .h-6 {
   height: 1.5rem;
 }
-.h-80 {
-  height: 20rem;
+.h-fit {
+  height: -moz-fit-content;
+  height: fit-content;
 }
 .h-full {
   height: 100%;
@@ -995,10 +996,6 @@ video {
 
   .md\:hidden {
     display: none;
-  }
-
-  .md\:h-96 {
-    height: 24rem;
   }
 
   .md\:max-h-60 {
