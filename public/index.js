@@ -7,4 +7,18 @@ document.addEventListener("DOMContentLoaded", function () {
  mobileMenubtn.addEventListener("click", () => {
   mobileMenu.classList.toggle("hidden");
  });
+
+ // When the user scrolls the page, store the scroll position in local storage
+ window.addEventListener("scroll", () => {
+  localStorage.setItem("scrollPosition", window.pageYOffset);
+ });
+
+ // When the page loads, check if there's a stored scroll position and scroll to that position
+ window.addEventListener("load", () => {
+  const scrollPosition = localStorage.getItem("scrollPosition");
+  if (scrollPosition) {
+   window.scrollTo(0, scrollPosition);
+   localStorage.removeItem("scrollPosition"); // Remove the stored scroll position to prevent it from being used again
+  }
+ });
 });
