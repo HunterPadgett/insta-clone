@@ -1,4 +1,5 @@
 const Post = require("../models/Post");
+const Comment = require("../models/Comment");
 const cloudinary = require("../middleware/cloudinary");
 
 exports.getFeed = async (req, res) => {
@@ -9,10 +10,21 @@ exports.getFeed = async (req, res) => {
    .sort({ createdAt: "desc" })
    .lean()
    .exec();
+
+   
+  const comments = await Comment.find()
+   .populate("madeBy")
+   .sort({ createdAt: "desc" })
+   .lean()
+   .exec();
+
+  // console.log(posts);
+
   // Render the "feed" view with the user object and the retrieved posts
   res.render("feed", {
    user: req.user,
    posts,
+   comments,
   });
  } catch (err) {
   console.error(err);
@@ -46,6 +58,20 @@ exports.likePost = async (req, res) => {
    { new: true }
   );
   console.log("likes +1");
+  res.redirect("/feed");
+ } catch (err) {
+  console.error(err);
+ }
+};
+
+exports.addComment = async (req, res) => {
+ try {
+  await Comment.create({
+   comment: req.body.comment,
+   madeBy: req.user.id,
+   onPost: req.params.id,
+  });
+  console.log("comment has been added");
   res.redirect("/feed");
  } catch (err) {
   console.error(err);

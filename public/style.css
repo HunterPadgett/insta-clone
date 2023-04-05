@@ -6,11 +6,7 @@ body {
 
 nav,
 aside {
- /* backdrop-filter: blur(16px) saturate(180%);
- -webkit-backdrop-filter: blur(16px) saturate(180%); */
  background-color: #0f051f;
- /* border-radius: 12px; */
- /* border: 1px solid rgba(255, 255, 255, 0.125); */
 }
 
 #nav-link:hover,
@@ -28,10 +24,6 @@ aside {
 }
 
 #underlined {
- /* text-decoration-line: underline;
- text-decoration-style: "solid";
- text-decoration-color: #f2c30f;
- text-decoration-thickness: 5px; */
  border-bottom: 5px solid #f2c30f;
  padding-bottom: 1px;
 }
@@ -74,3 +66,18 @@ input {
  border-radius: 12px;
  border: 2px solid #f2c30f;
 }
+
+
+/* 
+
+<ul id="comments" class="">
+    <% comments.forEach(comment => { %>
+    <li>
+     <span class="font-semibold"> <%= comment.madeBy.userName %> </span> <%=
+     comment.comment %>
+    </li>
+    <% }) %>
+</ul>
+
+
+*/

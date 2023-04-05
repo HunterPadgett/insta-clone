@@ -72,23 +72,19 @@
    <div class="flex gap-3">
     <form action="/profile/likePost/<%= post._id %>?_method=PUT" method="POST">
      <button
-      class="text-white hover:text-red-600 transition duration-300"
+      class="text-white hover:text-red-600 focus:text-red-600 transition duration-300"
       type="submit"
      >
       <i class="fa fa-heart text-lg"></i>
      </button>
     </form>
-    <form
-     action="/profile/addComment/<%= post._id %>?_method=PUT"
-     method="POST"
+    <!-- button to toggle the comment area form -->
+    <button
+     class="text-white hover:text-yellow-400 focus:text-yellow-400 transition duration-300"
+     id="toggle-comment-area"
     >
-     <button
-      class="text-white hover:text-yellow-400 transition duration-300"
-      type="submit"
-     >
-      <i class="fa fa-comment text-lg"></i>
-     </button>
-    </form>
+     <i class="fa fa-comment text-lg"></i>
+    </button>
    </div>
    <div>
     <form
@@ -96,13 +92,31 @@
      action="/profile/deletePost/<%= post._id %>?_method=DELETE"
     >
      <button
-      class="text-white hover:text-yellow-400 transition duration-300"
+      class="text-white hover:text-yellow-400 focus:text-yellow-400 transition duration-300"
       type="submit"
      >
       <i class="fa fa-trash-can text-lg"></i>
      </button>
     </form>
    </div>
+  </div>
+  <div id="add-comment-form" class="hidden w-full px-2">
+   <form action="/feed/addComment/<%= post._id %>" method="POST">
+    <div class="flex">
+     <input
+      type="text"
+      class="flex-grow focus:outline-none rounded rounded-r-none text-sm p-1"
+      placeholder="Add a comment..."
+     />
+     <button
+      type="submit"
+      class="rounded-r text-sm text-white px-1"
+      id="sign-up-btn"
+     >
+      Post
+     </button>
+    </div>
+   </form>
   </div>
   <div id="post-likes" class="font-semibold text-sm text-white p-2">
    <%= post.likes %> likes

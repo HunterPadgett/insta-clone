@@ -24,31 +24,32 @@
   </div>
   <div class="p-2 flex justify-between" id="like-comment-delete">
    <div class="flex gap-3">
+    <!-- form for liking post -->
     <form action="/feed/likePost/<%= post._id %>?_method=PUT" method="POST">
      <button
-      class="text-white hover:text-red-600 transition duration-300"
+      class="text-white hover:text-red-600 focus:text-red-600 transition duration-300"
       type="submit"
      >
       <i class="fa fa-heart text-lg"></i>
      </button>
     </form>
-    <form action="/feed/addComment/<%= post._id %>?_method=PUT" method="POST">
-     <button
-      class="text-white hover:text-yellow-400 transition duration-300"
-      type="submit"
-     >
-      <i class="fa fa-comment text-lg"></i>
-     </button>
-    </form>
+    <!-- button to toggle the comment area form -->
+    <button
+     class="text-white hover:text-yellow-400 focus:text-yellow-400 transition duration-300"
+     id="toggle-comment-area"
+    >
+     <i class="fa fa-comment text-lg"></i>
+    </button>
    </div>
    <% if (post.user._id.toString() == user._id) { %>
    <div>
+    <!-- form for deleting post for logged in user -->
     <form
      method="POST"
      action="/feed/deletePost/<%= post._id %>?_method=DELETE"
     >
      <button
-      class="text-white hover:text-yellow-400 transition duration-300"
+      class="text-white hover:text-yellow-400 focus:text-yellow-400 transition duration-300"
       type="submit"
      >
       <i class="fa fa-trash-can text-lg"></i>
@@ -57,21 +58,43 @@
    </div>
    <% } %>
   </div>
+  <!-- hidden form text area -->
+  <!-- form for adding comment -->
+  <div id="add-comment-form" class="hidden w-full px-2">
+   <form action="/feed/addComment/<%= post._id %>" method="POST">
+    <div class="flex">
+     <input
+      type="text"
+      class="flex-grow focus:outline-none rounded rounded-r-none text-sm p-1"
+      name="comment"
+      placeholder="Add a comment..."
+     />
+     <button
+      type="submit"
+      class="rounded-r text-sm text-white px-1"
+      id="sign-up-btn"
+     >
+      Post
+     </button>
+    </div>
+   </form>
+  </div>
   <div id="post-likes" class="font-semibold text-sm text-white p-2">
    <%= post.likes %> likes
   </div>
-  <div id="post-title" class="text-sm text-white p-2">
-   <span class="font-semibold"><%= post.user.userName %></span> <%= post.caption
-   %>
+  <div id="post-title" class="text-white p-2">
+   <span class="font-semibold text-base"><%= post.user.userName %></span> <%=
+   post.caption %>
   </div>
   <div id="comment-section" class="text-sm text-white p-2">
-   <ul id="comments" class="">
-    <li><span class="font-semibold">User1</span> wow! so cool!</li>
-    <li><span class="font-semibold">User2</span> sick pic</li>
+   <ul id="comments" class="text-base">
+    <% comments.forEach(comment => { %> <% if (String(comment.onPost) ===
+    String(post._id)) { %>
     <li>
-     <span class="font-semibold">User3</span> my life was worthless before
-     Huntagram
+     <span class="font-semibold"><%= comment.madeBy.userName %></span>
+     <%= comment.comment %>
     </li>
+    <% } %> <% }); %>
    </ul>
   </div>
  </div>
