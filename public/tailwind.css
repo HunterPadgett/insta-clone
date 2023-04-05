@@ -541,6 +541,10 @@ video {
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
 }
+.my-3 {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
 .my-4 {
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -569,6 +573,9 @@ video {
 }
 .mt-2 {
   margin-top: 0.5rem;
+}
+.mt-5 {
+  margin-top: 1.25rem;
 }
 .mt-8 {
   margin-top: 2rem;
@@ -800,10 +807,6 @@ video {
   font-size: 1.875rem;
   line-height: 2.25rem;
 }
-.text-4xl {
-  font-size: 2.25rem;
-  line-height: 2.5rem;
-}
 .text-5xl {
   font-size: 3rem;
   line-height: 1;
@@ -1023,6 +1026,10 @@ video {
     margin-top: 5rem;
   }
 
+  .md\:mt-7 {
+    margin-top: 1.75rem;
+  }
+
   .md\:flex {
     display: flex;
   }
@@ -1048,10 +1055,6 @@ video {
     max-width: 32rem;
   }
 
-  .md\:max-w-md {
-    max-width: 28rem;
-  }
-
   .md\:flex-row {
     flex-direction: row;
   }
@@ -1066,6 +1069,11 @@ video {
     line-height: 2.25rem;
   }
 
+  .md\:text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+
   .md\:text-5xl {
     font-size: 3rem;
     line-height: 1;
@@ -1074,6 +1082,11 @@ video {
   .md\:text-6xl {
     font-size: 3.75rem;
     line-height: 1;
+  }
+
+  .md\:text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
   }
 }
 @media (min-width: 1024px) {

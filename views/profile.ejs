@@ -2,15 +2,25 @@
 
 <div class="mt-8 md:mt-14 flex flex-col items-center justify-center">
  <div
-  class="container max-w-sm md:max-w-md mx-auto flex-1 flex flex-col justify-center px-2"
+  class="container max-w-sm md:max-w-lg mx-auto flex-1 flex flex-col justify-center px-2"
  >
   <h1
-   class="text-white text-center mb-10 text-5xl md:text-6xl"
+   class="text-white text-center mb-10 text-3xl md:text-5xl"
    id="action-word"
   >
-   Hello <%= user.name %>!
+   Hello, <%= user.name %>!
   </h1>
-  <div class="bg-slate-50 px-6 py-8 rounded shadow-md w-full" id="home-card">
+
+  <a href="/feed" class="mx-auto">
+   <p
+    class="w-full text-center rounded text-white transition ease-in-out duration-500 hover:scale-105 focus:outline-none text-xl md:text-2xl"
+    id="action-word"
+   >
+    <i class="fa fa-arrow-left text-xl md:text-xl"></i> Back home
+   </p>
+  </a>
+
+  <div class="bg-slate-50 p-3 my-3 rounded shadow-md w-full" id="home-card">
    <h2 class="mb-8 text-2xl md:text-3xl text-white text-center">
     Create new post
    </h2>
@@ -26,7 +36,7 @@
      name="caption"
     ></textarea>
 
-    <label for="file" class="text-white">Image</label>
+    <label for="file" class="text-white">Image</label> <br />
     <input type="file" class="mb-3 text-white" id="imageUpload" name="file" />
 
     <button
@@ -41,17 +51,14 @@
   </div>
  </div>
 
- <h2
-  class="text-white text-center mt-14 mb-10 text-4xl md:text-5xl"
-  id="action-word"
- >
-  Your previous posts
- </h2>
+ <h3 class="text-white text-center mt-14 text-2xl md:text-4xl" id="action-word">
+  Your posts
+ </h3>
 
  <% posts.forEach(post => { %>
  <!-- start card -->
  <div
-  class="post container my-4 md:my-7 max-w-sm md:max-w-lg mx-auto flex flex-col"
+  class="post container my-3 md:my-7 max-w-sm md:max-w-lg mx-auto flex flex-col"
   data-post-id="1"
   id="post-card"
  >
