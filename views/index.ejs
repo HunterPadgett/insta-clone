@@ -14,7 +14,7 @@
    Welcome to <span id="action-word">Huntagram</span>
   </h1>
   <p
-   class="max-w-xs my-4 md:my-7 text-lg md:text-2xl text-center text-white opacity-90"
+   class="max-w-sm my-4 md:my-7 text-lg md:text-2xl text-center text-white opacity-90"
   >
    Definitely <span class="font-bold" id="action-word">NOT</span> just a
    knock-off social media site... <br />
@@ -31,15 +31,29 @@
   class="container md:flex mx-auto justify-center text-center items-center md:my-7 my-4"
  >
   <div class="w-full lg:w-1/2 p-4">
-   <p class="text-white">
-    <a href="/auth/signup" id="underlined">Create an account</a>
-   </p>
+   <a href="/auth/signup">
+    <p class="text-white transition ease-in-out duration-500 hover:scale-105">
+     <span id="underlined"> Create an account </span>
+    </p>
+   </a>
   </div>
   <div class="w-full lg:w-1/2 p-4">
    <p class="text-white">
     Already have an account?
-    <a href="/auth/login" id="underlined">Log in</a>
+    <span
+     id="underlined"
+     class="transition ease-in-out duration-500 hover:scale-105 inline-block"
+    >
+     <a href="/auth/login" class="" id="underlined">Log in</a>
+    </span>
    </p>
   </div>
+
+  <!-- <div class="w-full lg:w-1/2 p-4">
+   <p class="text-white">
+    Already have an account?
+    <a href="/auth/login" id="underlined">Log in</a>
+   </p>
+  </div> -->
  </div>
 </div>
