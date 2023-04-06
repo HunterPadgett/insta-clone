@@ -10,16 +10,16 @@ The app uses cloudinary for image uploading and storage, and MongoDB/Mongoose fo
 
 Deployed link: https://huntagram.onrender.com/
 
-Landing Page
+### Landing Page
 ![image](https://user-images.githubusercontent.com/106113692/230487871-7e29c793-eab4-4d52-a3b6-b8c365dd84d7.png)
 </br>
-Feed where you can view all user's posts
+### Home page
 ![image](https://user-images.githubusercontent.com/106113692/230488080-cb250668-904f-4ea4-a808-599488e8ef79.png)
 </br>
-Profile page where users can upload new posts and see all of their previous posts
+### Profile page
 ![image](https://user-images.githubusercontent.com/106113692/230488243-453ab8bd-9af3-4b68-befb-0b369d06158e.png)
 </br>
-How the Mongoose models interact
+### Mongoose model structure
 ![huntagram excalidraw](https://user-images.githubusercontent.com/106113692/230488306-b014ed3d-e384-4f5b-a574-c5ce9957e11c.png)
 
 ## Table of Contents
@@ -50,17 +50,17 @@ Create a .env file in the root directory and add the following environment varia
 Start the development server: <br/>
 `npm run dev`
 
-This will start the app at http://localhost:<whatever-port-number-you-put-in-the-env>.
+This will start the app at http://localhost:`<whatever-port-number-you-put-in-the-env>`.
 
 ## Usage
-
+  
 To use the app, first sign up for an account by clicking the "Sign Up" button on the home page. Once you have signed up it will log you in automatically.
+  
+From the home page you can view all other users' posts sorted by creation date. To like or comment on a post, click the heart or comment icons on the post. You are given an option to delete the posts made by yourself which will remove the post from the database and from Cloudinary.
+  
+To add a post, click on the "Add new post" button or click on the "Profile" button in the navigation bar. Fill out the form with a caption and a photo. Click on "Upload" to add the post to the database and view it on the home page. Your post will appear on your profile page and on the home page for other users to see.
 
-From the home page, you can view other users' posts. To post your own photo, click the "New Post" button on the top of the home page or navigate to the profile page. Fill in the caption and upload a photo. Your post will appear on your profile page and on the home page for other users to see.
-
-To like or comment on a post, click the heart or comment icons on the post.
-
-You are given an option to delete the posts made by yourself which will remove the post from the database and from Cloudinary.
+* Note: Some features of the app may require authentication. You can create an account by clicking on the "Sign Up" button in the navigation bar and creating an account.*
 
 This project was created by [Hunter Padgett](https://hunterpadgett.netlify.app/)
 
@@ -70,28 +70,28 @@ Contributions to Huntagram are welcome! If you have an idea for a feature or imp
 
 ## Technologies
 
-autoprefixer: Parses CSS and adds vendor prefixes to CSS rules using values from the Can I Use website.
-bcrypt: A library for hashing passwords.
-cloudinary: A cloud-based image and video management service.
-connect-mongo: A MongoDB session store for Express and Connect.
-cors: A package for providing a Connect/Express middleware that can be used to enable CORS with various options.
-dotenv: A zero-dependency module that loads environment variables from a .env file into process.env.
-ejs: A simple templating language that lets you generate HTML markup with plain JavaScript.
-express: A popular and minimalistic Node.js web framework.
-express-flash: A module for flashing messages to the user via redirects.
-express-session: A package that provides session middleware for Express.
-method-override: A package that lets you use HTTP verbs such as PUT or DELETE in places where the client doesn't support it.
-mongodb: A popular NoSQL database.
-mongoose: A popular ODM for MongoDB that provides a straight-forward, schema-based solution to model your application data.
-morgan: A logging middleware for Express.
-multer: A middleware for handling multipart/form-data, which is primarily used for uploading files.
-nodemon: A development tool that automatically restarts the Node.js application when file changes in the directory are detected.
-passport: A popular authentication middleware for Node.js.
-passport-local: An authentication strategy for Passport and Node.js that uses a username and password for authentication.
-postcss: A tool for transforming CSS with JavaScript plugins.
-postcss-cli: A command-line interface for PostCSS.
-tailwindcss: A utility-first CSS framework that lets you rapidly build custom designs.
-validator: A library of string validators and sanitizers.
+- **autoprefixer:** Parses CSS and adds vendor prefixes to CSS rules using values from the Can I Use website.
+- **bcrypt:** A library for hashing passwords.
+- **cloudinary:** A cloud-based image and video management service.
+- **connect-mongo:** A MongoDB session store for Express and Connect.
+- **cors:** A package for providing a Connect/Express middleware that can be used to enable CORS with various options.
+- **dotenv:** A zero-dependency module that loads environment variables from a .env file into process.env.
+- **ejs:** A simple templating language that lets you generate HTML markup with plain JavaScript.
+- **express:** A popular and minimalistic Node.js web framework.
+- **express-flash:** A module for flashing messages to the user via redirects.
+- **express-session:** A package that provides session middleware for Express.
+- **method-override:** A package that lets you use HTTP verbs such as PUT or DELETE in places where the client doesn't support it.
+- **mongodb:** A popular NoSQL database.
+- **mongoose:** A popular ODM for MongoDB that provides a straight-forward, schema-based solution to model your application data.
+- **morgan:** A logging middleware for Express.
+- **multer:** A middleware for handling multipart/form-data, which is primarily used for uploading files.
+- **nodemon:** A development tool that automatically restarts the Node.js application when file changes in the directory are detected.
+- **passport:** A popular authentication middleware for Node.js.
+- **passport-local:** An authentication strategy for Passport and Node.js that uses a username and password for authentication.
+- **postcss:** A tool for transforming CSS with JavaScript plugins.
+- **postcss-cli:** A command-line interface for PostCSS.
+- **tailwindcss:** A utility-first CSS framework that lets you rapidly build custom designs.
+- **validator:** A library of string validators and sanitizers.
 
 ## Questions
 
