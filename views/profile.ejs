@@ -71,7 +71,8 @@
    <img
     src="<%= post.image %>"
     alt="Card Image"
-    class="object-cover w-full h-80 md:h-fit"
+    class="object-cover w-full h-96"
+    id="image-card"
    />
   </div>
 
@@ -108,11 +109,12 @@
    </div>
   </div>
   <div id="add-comment-form" class="hidden w-full px-2">
-   <form action="/feed/addComment/<%= post._id %>" method="POST">
+   <form action="/profile/addComment/<%= post._id %>" method="POST">
     <div class="flex">
      <input
       type="text"
       class="flex-grow focus:outline-none rounded rounded-r-none text-sm p-1"
+      name="comment"
       placeholder="Add a comment..."
      />
      <button
@@ -132,16 +134,26 @@
    <span class="font-semibold"><%= user.userName %></span> <%= post.caption %>
   </div>
   <div id="comment-section" class="text-sm text-white p-2">
-   <ul id="comments" class="">
-    <li><span class="font-semibold">User1</span> wow! so cool!</li>
-    <li><span class="font-semibold">User2</span> sick pic</li>
+   <ul id="comments" class="text-base">
+    <% comments.forEach(comment => { %> <% if (String(comment.onPost) ===
+    String(post._id)) { %>
     <li>
-     <span class="font-semibold">User3</span> my life was worthless before
-     Huntagram
+     <span class="font-semibold"><%= comment.madeBy.userName %></span>
+     <%= comment.comment %>
     </li>
+    <% } %> <% }); %>
    </ul>
   </div>
  </div>
  <!-- end card -->
  <% }) %>
 </div>
+<a href="#" class="top" id="mobile-nav-btn"><i class="fa fa-arrow-up"></i></a>
+<a href="#" class="mx-auto md:hidden">
+ <p
+  class="w-full text-center rounded text-white transition ease-in-out duration-500 hover:scale-105 focus:outline-none text-xl my-3"
+  id="action-word"
+ >
+  Scroll to top <i class="fa fa-arrow-up text-xl md:text-xl"></i>
+ </p>
+</a>

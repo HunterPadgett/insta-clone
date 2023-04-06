@@ -11,10 +11,9 @@ exports.getFeed = async (req, res) => {
    .lean()
    .exec();
 
-   
   const comments = await Comment.find()
    .populate("madeBy")
-   .sort({ createdAt: "desc" })
+   .sort({ createdAt: "asc" })
    .lean()
    .exec();
 

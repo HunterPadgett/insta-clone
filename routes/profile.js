@@ -8,5 +8,6 @@ router.get("/", ensureAuth, profileController.getProfile);
 router.post("/createPost", upload.single("file"), profileController.createPost);
 router.delete("/deletePost/:id", profileController.deletePost);
 router.put("/likePost/:id", profileController.likePost);
+router.post("/addComment/:id", profileController.addComment);
 
 module.exports = router;

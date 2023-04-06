@@ -1,4 +1,5 @@
 const Post = require("../models/Post");
+const Comment = require("../models/Comment");
 const cloudinary = require("../middleware/cloudinary");
 
 exports.getProfile = async (req, res) => {
@@ -8,11 +9,18 @@ exports.getProfile = async (req, res) => {
    .sort({ createdAt: "desc" })
    .lean()
    .exec();
+
+  const comments = await Comment.find()
+   .populate("madeBy")
+   .sort({ createdAt: "asc" })
+   .lean()
+   .exec();
   //  This line renders the "profile" ejs. Passes in an object containing variables that the view can use, including the page title, the current user's information (stored in `req.user`), and the array of posts belonging to the user queried from the db
   res.render("profile", {
    title: "Profile | Huntagram",
    user: req.user,
    posts,
+   comments,
   });
  } catch (err) {
   console.error(err);
@@ -65,6 +73,20 @@ exports.likePost = async (req, res) => {
    { new: true }
   );
   console.log("likes +1");
+  res.redirect("/profile");
+ } catch (err) {
+  console.error(err);
+ }
+};
+
+exports.addComment = async (req, res) => {
+ try {
+  await Comment.create({
+   comment: req.body.comment,
+   madeBy: req.user.id,
+   onPost: req.params.id,
+  });
+  console.log("comment has been added");
   res.redirect("/profile");
  } catch (err) {
   console.error(err);
