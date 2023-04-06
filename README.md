@@ -50,7 +50,7 @@ Create a .env file in the root directory and add the following environment varia
 Start the development server: <br/>
 `npm run dev`
 
-This will start the app at http://localhost:`<whatever-port-number-you-put-in-the-env>`.
+This will start the app at `http://localhost:<whatever-port-number-you-put-in-the-env>`.
 
 ## Usage
   
