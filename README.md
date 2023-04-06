@@ -60,7 +60,7 @@ From the home page you can view all other users' posts sorted by creation date. 
   
 To add a post, click on the "Add new post" button or click on the "Profile" button in the navigation bar. Fill out the form with a caption and a photo. Click on "Upload" to add the post to the database and view it on the home page. Your post will appear on your profile page and on the home page for other users to see.
 
-* Note: Some features of the app may require authentication. You can create an account by clicking on the "Sign Up" button in the navigation bar and creating an account.*
+* Note: Some features of the app may require authentication. You can create an account by clicking on the "Sign Up" button in the navigation bar and creating an account.
 
 This project was created by [Hunter Padgett](https://hunterpadgett.netlify.app/)
 
