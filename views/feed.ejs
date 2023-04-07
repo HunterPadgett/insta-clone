@@ -13,12 +13,11 @@
  <!-- start card -->
  <div
   class="post container my-4 md:my-7 max-w-sm md:max-w-lg mx-auto flex flex-col"
-  data-post-id="1"
   id="post-card"
  >
   <div class="p-2 flex justify-between">
-   <h3 class="text-base font-medium text-white"><%= post.user.userName %></h3>
-   <h3 class="text-base text-white"><%= post.createdAt.toDateString() %></h3>
+   <h2 class="text-lg font-medium text-white"><%= post.user.userName %></h2>
+   <time class="text-lg text-white"><%= post.createdAt.toDateString() %></time>
   </div>
 
   <div class="relative overflow-hidden">
@@ -36,16 +35,20 @@
      <button
       class="text-white hover:text-red-600 focus:text-red-600 transition duration-300"
       type="submit"
+      aria-label="like button"
      >
       <i class="fa fa-heart text-lg"></i>
+      <span class="sr-only">Like Post</span>
      </button>
     </form>
     <!-- button to toggle the comment area form -->
     <button
      class="text-white hover:text-yellow-400 focus:text-yellow-400 transition duration-300"
      id="toggle-comment-area"
+     aria-label="comment button"
     >
      <i class="fa fa-comment text-lg"></i>
+     <span class="sr-only">Leave a Comment</span>
     </button>
    </div>
    <% if (post.user._id.toString() == user._id) { %>
@@ -58,8 +61,10 @@
      <button
       class="text-white hover:text-yellow-400 focus:text-yellow-400 transition duration-300"
       type="submit"
+      aria-label="delete button"
      >
       <i class="fa fa-trash-can text-lg"></i>
+      <span class="sr-only">Delete Post</span>
      </button>
     </form>
    </div>
@@ -87,7 +92,8 @@
    </form>
   </div>
   <div id="post-likes" class="font-semibold text-sm text-white p-2">
-   <%= post.likes %> likes
+   <% if (post.likes > 1) { %> <%= post.likes %> likes <%} else if (post.likes >
+   0) { %> <%= post.likes %> like <% } %>
   </div>
   <div id="post-title" class="text-white p-2">
    <span class="font-semibold text-base"><%= post.user.userName %></span> <%=
@@ -108,7 +114,13 @@
  <!-- end card -->
  <% }) %>
 </div>
-<a href="#" class="top" id="mobile-nav-btn"><i class="fa fa-arrow-up"></i></a>
+<a
+ href="#"
+ class="top"
+ id="mobile-nav-btn"
+ aria-label="button that scrolls you to the top of the page"
+ ><i class="fa fa-arrow-up"></i
+></a>
 <a href="#" class="mx-auto md:hidden">
  <p
   class="w-full text-center rounded text-white transition ease-in-out duration-500 hover:scale-105 focus:outline-none text-xl my-3"

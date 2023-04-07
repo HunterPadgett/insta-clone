@@ -20,7 +20,7 @@
    </p>
   </a>
 
-  <div class="bg-slate-50 p-3 my-3 rounded shadow-md w-full" id="home-card">
+  <div class="bg-slate-50 p-3 my-3 rounded shadow-md w-full" id="post-card">
    <h2 class="mb-8 text-2xl md:text-3xl text-white text-center">
     Create new post
    </h2>
@@ -59,13 +59,12 @@
 
  <!-- start card -->
  <div
-  class="post container my-3 md:my-7 max-w-sm md:max-w-lg mx-auto flex flex-col"
-  data-post-id="1"
+  class="post container my-4 md:my-7 max-w-sm md:max-w-lg mx-auto flex flex-col"
   id="post-card"
  >
   <div class="p-2 flex justify-between">
-   <h3 class="text-base font-medium text-white"><%= user.userName %></h3>
-   <h3 class="text-base text-white"><%= post.createdAt.toDateString() %></h3>
+   <h2 class="text-lg font-medium text-white"><%= post.user.userName %></h2>
+   <time class="text-lg text-white"><%= post.createdAt.toDateString() %></time>
   </div>
 
   <div class="relative overflow-hidden">
@@ -76,41 +75,52 @@
     id="image-card"
    />
   </div>
-
   <div class="p-2 flex justify-between" id="like-comment-delete">
    <div class="flex gap-3">
-    <form action="/profile/likePost/<%= post._id %>?_method=PUT" method="POST">
+    <!-- form for liking post -->
+    <form action="/feed/likePost/<%= post._id %>?_method=PUT" method="POST">
      <button
       class="text-white hover:text-red-600 focus:text-red-600 transition duration-300"
       type="submit"
+      aria-label="like button"
      >
       <i class="fa fa-heart text-lg"></i>
+      <span class="sr-only">Like Post</span>
      </button>
     </form>
     <!-- button to toggle the comment area form -->
     <button
      class="text-white hover:text-yellow-400 focus:text-yellow-400 transition duration-300"
      id="toggle-comment-area"
+     aria-label="comment button"
     >
      <i class="fa fa-comment text-lg"></i>
+     <span class="sr-only">Leave a Comment</span>
     </button>
    </div>
+   <% if (post.user._id.toString() == user._id) { %>
    <div>
+    <!-- form for deleting post for logged in user -->
     <form
      method="POST"
-     action="/profile/deletePost/<%= post._id %>?_method=DELETE"
+     action="/feed/deletePost/<%= post._id %>?_method=DELETE"
     >
      <button
       class="text-white hover:text-yellow-400 focus:text-yellow-400 transition duration-300"
       type="submit"
+      aria-label="delete button"
      >
       <i class="fa fa-trash-can text-lg"></i>
+      <span class="sr-only">Delete Post</span>
      </button>
     </form>
    </div>
+   <% } %>
   </div>
+  <!-- hidden form text area -->
+  <!-- form for adding comment -->
   <div id="add-comment-form" class="hidden w-full px-2">
-   <form action="/profile/addComment/<%= post._id %>" method="POST">
+   <form action="/feed/addComment/<%= post._id %>" method="POST">
     <div class="flex">
      <input
       type="text"
@@ -129,10 +139,12 @@
    </form>
   </div>
   <div id="post-likes" class="font-semibold text-sm text-white p-2">
-   <%= post.likes %> likes
+   <% if (post.likes > 1) { %> <%= post.likes %> likes <%} else if (post.likes >
+   0) { %> <%= post.likes %> like <% } %>
   </div>
-  <div id="post-title" class="text-sm text-white p-2">
-   <span class="font-semibold"><%= user.userName %></span> <%= post.caption %>
+  <div id="post-title" class="text-white p-2">
+   <span class="font-semibold text-base"><%= post.user.userName %></span> <%=
+   post.caption %>
   </div>
   <div id="comment-section" class="text-sm text-white p-2">
    <ul id="comments" class="text-base">
