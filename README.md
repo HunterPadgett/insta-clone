@@ -111,18 +111,18 @@ This will start the app at `http://localhost:<whatever-port-number-you-put-in-th
 Huntagram provides a RESTful API for interacting with user data and posts. The following endpoints are available:
 
 - `GET /`: Fetches the landing page.
-
+</br>
 - `GET /auth/login`: Fetches the login page.
 - `GET /auth/signup`: Fetches the signup page.
 - `POST /auth/login`: Creates a new user.
 - `POST /auth/signup`: Looks for user in database, checks if they exist and their password is correct, logs the user in if everything is correct.
 - `GET /auth/logout`: Destroys the current logged in user's session.
-
+</br>
 - `GET /feed`: Fetches all posts.
 - `POST /feed/addComment/:id`: Adds a comment to a specific post by its ID.
 - `PUT /feed/likePost/:id`: Updates the post's likes by 1.
 - `DELETE /feed/deletePost/:id`: Gives the logged in user the ability to delete a post if it belongs to them.
-
+</br>
 - `GET /profile`: Fetches all posts of the logged in user.
 - `POST /profile/createPost`: Creates new post.
 - `POST /profile/addComment/:id`: Adds a comment to a specific post by its ID.
