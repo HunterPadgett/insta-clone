@@ -75,7 +75,7 @@ Huntagram offers the following features:
 - Home Feed: Users can view a feed of all posts sorted by creation date.
 - Responsive Design: The app is optimized for various screen sizes and devices.
 - Error Handling: Comprehensive error handling and user-friendly error messages are implemented.
-- 
+
 With these features, Huntagram provides a complete Instagram-like experience for users, allowing them to share their photos, engage with others' content, and build a vibrant community.
 
 Feel free to customize and expand on these features based on the specific functionality of your application.
