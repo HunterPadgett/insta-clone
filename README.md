@@ -8,8 +8,6 @@ Huntagram is a fullstack Instagram clone built with Node.js, Express, MongoDB, M
 
 The app uses cloudinary for image uploading and storage, and MongoDB/Mongoose for data persistence. EJS is used for rendering dynamic views on the server side, and Tailwind is used for styling the app. Bcrypt is used for password hashing, Passport and Passport-Local for authentication, and Connect-Mongo for session storage.
 
-Deployed link: https://huntagram.onrender.com/
-
 ### Landing Page
 ![image](https://user-images.githubusercontent.com/106113692/230487871-7e29c793-eab4-4d52-a3b6-b8c365dd84d7.png)
 </br>
@@ -82,7 +80,7 @@ Feel free to customize and expand on these features based on the specific functi
 
 ## Demo
 
-This project was created by [Hunter Padgett](https://hunterpadgett.netlify.app/)
+Deployed link: https://huntagram.onrender.com/
 
 # Getting Started
 
